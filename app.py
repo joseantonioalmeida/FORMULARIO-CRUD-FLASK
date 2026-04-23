@@ -34,6 +34,8 @@ def buscar():
     except ValueError:
         return redirect('/')
     result = [p for p in listaprodutos if p['id'] == id_busca]
+    if not result:
+        return redirect('/')
     return render_template('index.html', produtos=result)
 
 
